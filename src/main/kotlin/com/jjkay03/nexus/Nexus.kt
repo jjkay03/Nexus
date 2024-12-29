@@ -1,5 +1,6 @@
 package com.jjkay03.nexus
 
+import com.jjkay03.nexus.commands.NexusCommand
 import jdk.jshell.execution.Util
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -20,6 +21,9 @@ class Nexus : JavaPlugin() {
 
         // Create all default files
         createDefaultFiles()
+
+        // COMMANDS
+        getCommand("nexus")?.setExecutor(NexusCommand())
     }
 
     // Plugin shutdown logic
