@@ -5,7 +5,12 @@
 #  | |\  |  __/>  <| |_| \__ \
 #  |_| \_|\___/_/\_\\__,_|___/
 
-# Nexus - Config file
+# Nexus - Messages file
 # (for plugin version V0.1)
 
 
+# Plugin main prefix
+# leave empty (prefix: "") if you wish not to use a prefix
+prefix: "§1[§9NEXUS§1] §r"
+
+test: "This is a test message"

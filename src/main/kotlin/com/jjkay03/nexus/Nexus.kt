@@ -1,5 +1,6 @@
 package com.jjkay03.nexus
 
+import jdk.jshell.execution.Util
 import org.bukkit.plugin.java.JavaPlugin
 
 class Nexus : JavaPlugin() {
@@ -17,11 +18,19 @@ class Nexus : JavaPlugin() {
         logger.info("${description.name} is running!")
         logger.info("Plugin version: ${description.version}")
 
-        // Config stuff
-        saveDefaultConfig() // Save the default configuration if it doesn't exist
-        reloadConfig() // Reload the configuration
+        // Create all default files
+        createDefaultFiles()
     }
 
     // Plugin shutdown logic
     override fun onDisable() { }
+
+    // Function to create all default files
+    private fun createDefaultFiles() {
+        logger.info("Creating/checking plugin files")
+        saveDefaultConfig()
+        reloadConfig()
+        Utils.createDirectory(Saves.DIR_PLAYERDATA)
+        Utils.createFile(this, Saves.FILE_MESSAGES, Saves.FILE_NAME_MESSAGES)
+    }
 }
