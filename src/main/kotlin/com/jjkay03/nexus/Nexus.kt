@@ -27,10 +27,11 @@ class Nexus : JavaPlugin() {
 
     // Function to create all default files
     private fun createDefaultFiles() {
-        logger.info("Creating/checking plugin files")
+        logger.info("Creating/checking plugin files...")
         saveDefaultConfig()
         reloadConfig()
         Utils.createDirectory(Saves.DIR_PLAYERDATA)
         Utils.createFile(this, Saves.FILE_MESSAGES, Saves.FILE_NAME_MESSAGES)
+        Utils.updateYamlDefaults(this, Saves.FILE_MESSAGES, Saves.FILE_NAME_MESSAGES)
     }
 }

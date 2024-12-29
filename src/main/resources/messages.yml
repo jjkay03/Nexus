@@ -14,3 +14,7 @@
 prefix: "§1[§9NEXUS§1] §r"
 
 test: "This is a test message"
+
+# Error messages
+error:
+  not-player-command: "§cOnly players can run this command!"
