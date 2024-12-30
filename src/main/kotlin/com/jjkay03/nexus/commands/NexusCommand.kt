@@ -1,7 +1,7 @@
 package com.jjkay03.nexus.commands
 
-import com.jjkay03.nexus.utility.MessagesManager
-import com.jjkay03.nexus.utility.MessagesPath
+import com.jjkay03.nexus.Saves
+import com.jjkay03.nexus.utility.Messages
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -12,13 +12,15 @@ class NexusCommand: CommandExecutor, TabCompleter {
 
     // COMMAND
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
+        // End if sender is not a player (console)
         if (sender !is Player) {
-            sender.sendMessage(MessagesManager.getMessage(MessagesPath.ERROR_NOT_PLAYER_COMMAND))
+            sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.ERROR_COMMAND_NOT_PLAYER))
+            return true
         }
 
         // If no arguments, show main command info
         if (args.isEmpty()) {
-            sender.sendMessage("§9This is the main nexus command")
+            sender.sendMessage(Messages.PREFIX + "§aTEMP MESSAGE: §rThis is the main nexus command")
             return true
         }
 
@@ -26,7 +28,15 @@ class NexusCommand: CommandExecutor, TabCompleter {
         val subCommand = NexusSubCommands.entries.find {
             it.command == args[0].lowercase() || it.aliases.contains(args[0].lowercase())
         } ?: run {
-            sender.sendMessage("§cUnknown subcommand!")
+            // End if invalid subcommand
+            sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.ERROR_COMMAND_UNKNOWN_SUBCOMMAND))
+            return true
+        }
+
+        // End if sender doesn't have permission to use sub command
+        if (!sender.hasPermission(subCommand.permission)) {
+            sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.ERROR_COMMAND_NO_PERMISSION))
+            if (Saves.DEV_MODE) sender.sendMessage(Messages.PREFIX + "§7Missing permission: '${subCommand.permission}'")
             return true
         }
 

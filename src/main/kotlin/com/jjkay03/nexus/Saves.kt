@@ -4,6 +4,8 @@ import java.io.File
 
 class Saves {
     companion object {
+        var DEV_MODE = true
+
         // DIRECTORIES
         val DIR_MAIN_PLUGIN = File("plugins/Nexus")
         val DIR_PLAYERDATA = File(DIR_MAIN_PLUGIN, "playerdata")

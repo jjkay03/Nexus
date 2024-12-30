@@ -15,4 +15,7 @@ prefix: "§1[§9NEXUS§1] §r"
 
 # Error messages
 error:
-  not-player-command: "§cOnly players can run this command!"
+  command:
+    not-player: "§cOnly players can run this command!"
+    no-permission: "§cYou don't have the permission to run this command!"
+    unknown-subcommand: "§cUnknown subcommand!"
