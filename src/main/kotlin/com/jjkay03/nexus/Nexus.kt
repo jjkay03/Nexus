@@ -1,7 +1,6 @@
 package com.jjkay03.nexus
 
 import com.jjkay03.nexus.commands.NexusCommand
-import jdk.jshell.execution.Util
 import org.bukkit.plugin.java.JavaPlugin
 
 class Nexus : JavaPlugin() {
@@ -21,6 +20,9 @@ class Nexus : JavaPlugin() {
 
         // Create all default files
         createDefaultFiles()
+
+        // Load all variables in Saves class
+        Saves()
 
         // COMMANDS
         getCommand("nexus")?.setExecutor(NexusCommand())

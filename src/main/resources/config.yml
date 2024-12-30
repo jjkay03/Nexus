@@ -8,4 +8,6 @@
 # Nexus - Config file
 # (for plugin version V0.1)
 
-
+# Dev Mode - When unable the plugin will be in developer mode
+# This is used when developing Nexus to test features
+dev-mode: true
