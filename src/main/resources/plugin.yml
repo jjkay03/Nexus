@@ -9,10 +9,13 @@ api-version: '1.21'
 
 commands:
   nexus:
+    aliases: [nx, nex]
     description: "Main plugin command"
 
   nexusadmin:
+    aliases: [nxadmin, nexadmin]
     description: "Main admin command"
 
   nexusdev:
+    aliases: [nxdev, nexdev]
     description: "Main dev command"

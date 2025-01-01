@@ -50,7 +50,7 @@ object Utils {
 
         if (!updated) return // End if no update
         currentConfig.save(file)
-        Nexus.INSTANCE.logger.info("Updated $resourcePath with missing keys")
+        Nexus.INSTANCE.logger.warning("Updated $resourcePath with missing keys")
     }
 
 

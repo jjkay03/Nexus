@@ -31,6 +31,7 @@ class Nexus : JavaPlugin() {
         getCommand(ParentCommands.NEXUS.command)?.setExecutor(NexusCommand())
         getCommand(ParentCommands.NEXUS_ADMIN.command)?.setExecutor(NexusAdminCommand())
         if (Saves.DEV_MODE) getCommand(ParentCommands.NEXUS_DEV.command)?.setExecutor(NexusDevCommand())
+
     }
 
     // Plugin shutdown logic
