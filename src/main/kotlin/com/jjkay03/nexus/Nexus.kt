@@ -1,6 +1,9 @@
 package com.jjkay03.nexus
 
-import com.jjkay03.nexus.commands.NexusCommand
+import com.jjkay03.nexus.commands.ParentCommands
+import com.jjkay03.nexus.commands.cmd_nexus.NexusCommand
+import com.jjkay03.nexus.commands.cmd_nexusadmin.NexusAdminCommand
+import com.jjkay03.nexus.commands.cmd_nexusdev.NexusDevCommand
 import org.bukkit.plugin.java.JavaPlugin
 
 class Nexus : JavaPlugin() {
@@ -25,7 +28,9 @@ class Nexus : JavaPlugin() {
         Saves()
 
         // COMMANDS
-        getCommand("nexus")?.setExecutor(NexusCommand())
+        getCommand(ParentCommands.NEXUS.command)?.setExecutor(NexusCommand())
+        getCommand(ParentCommands.NEXUS_ADMIN.command)?.setExecutor(NexusAdminCommand())
+        if (Saves.DEV_MODE) getCommand(ParentCommands.NEXUS_DEV.command)?.setExecutor(NexusDevCommand())
     }
 
     // Plugin shutdown logic

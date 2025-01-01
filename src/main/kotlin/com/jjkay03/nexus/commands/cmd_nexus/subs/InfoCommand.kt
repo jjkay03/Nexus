@@ -1,4 +1,4 @@
-package com.jjkay03.nexus.commands.nexus_subs
+package com.jjkay03.nexus.commands.cmd_nexus.subs
 
 import com.jjkay03.nexus.utility.Messages
 import org.bukkit.command.Command

@@ -10,3 +10,9 @@ api-version: '1.21'
 commands:
   nexus:
     description: "Main plugin command"
+
+  nexusadmin:
+    description: "Main admin command"
+
+  nexusdev:
+    description: "Main dev command"
