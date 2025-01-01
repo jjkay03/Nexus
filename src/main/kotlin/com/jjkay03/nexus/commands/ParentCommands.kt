@@ -20,6 +20,6 @@ enum class ParentCommands(
 
     NEXUS_DEV(
         "nexusdev",
-        Saves.PERM_COMMAND
+        Saves.PERM_ADMIN
     )
 }
