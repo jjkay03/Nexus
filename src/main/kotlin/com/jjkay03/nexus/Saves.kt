@@ -10,6 +10,8 @@ class Saves {
         val DIR_MAIN_PLUGIN = File("plugins/Nexus")
         val DIR_PLAYERDATA = File(DIR_MAIN_PLUGIN, "playerdata")
         // FILES
+        const val FILE_NAME_CONFIG = "config.yml"
+        val FILE_CONFIG = File(DIR_MAIN_PLUGIN, FILE_NAME_CONFIG)
         const val FILE_NAME_MESSAGES = "messages.yml"
         val FILE_MESSAGES = File(DIR_MAIN_PLUGIN, FILE_NAME_MESSAGES)
 
