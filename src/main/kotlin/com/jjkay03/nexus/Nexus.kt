@@ -16,16 +16,16 @@ class Nexus : JavaPlugin() {
     override fun onEnable() {
         INSTANCE = this
 
+        // Startup logic
+        createDefaultFiles() // Create all default files
+        Saves() // Load all variables in Saves class
+
         // Startup info
         Utils.displayPluginWelcomeMessage("§9")
+        Utils.devmodeConsoleWarning()
         logger.info("${description.name} is running!")
         logger.info("Plugin version: ${description.version}")
 
-        // Create all default files
-        createDefaultFiles()
-
-        // Load all variables in Saves class
-        Saves()
 
         // COMMANDS
         getCommand(ParentCommands.NEXUS.command)?.setExecutor(NexusCommand())

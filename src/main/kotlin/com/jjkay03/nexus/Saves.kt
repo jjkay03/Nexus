@@ -1,23 +1,28 @@
 package com.jjkay03.nexus
 
+import org.bukkit.NamespacedKey
 import java.io.File
 
 class Saves {
     companion object {
         var DEV_MODE = false // Get from config
 
-        // DIRECTORIES
-        val DIR_MAIN_PLUGIN = File("plugins/Nexus")
-        val DIR_PLAYERDATA = File(DIR_MAIN_PLUGIN, "playerdata")
-        // FILES
-        const val FILE_NAME_CONFIG = "config.yml"
-        val FILE_CONFIG = File(DIR_MAIN_PLUGIN, FILE_NAME_CONFIG)
-        const val FILE_NAME_MESSAGES = "messages.yml"
-        val FILE_MESSAGES = File(DIR_MAIN_PLUGIN, FILE_NAME_MESSAGES)
+        // ITEMS
+        val NEXUS_ITEM_CMD_RANGE = 808_000_000..808_999_999 // Custom model data range
+        val NEXUS_ITEM_NAMESPACE_KEY = NamespacedKey(Nexus.INSTANCE, "nexus")
+
 
         // PERMISSIONS
         const val PERM_ADMIN = "nexus.admin"
         const val PERM_COMMAND = "nexus.command"
+
+        // DIRECTORIES
+        val DIR_MAIN_PLUGIN = File("plugins/Nexus")
+        val DIR_PLAYERDATA = File(DIR_MAIN_PLUGIN, "playerdata")
+
+        // FILES
+        const val FILE_NAME_CONFIG = "config.yml"; val FILE_CONFIG = File(DIR_MAIN_PLUGIN, FILE_NAME_CONFIG)
+        const val FILE_NAME_MESSAGES = "messages.yml"; val FILE_MESSAGES = File(DIR_MAIN_PLUGIN, FILE_NAME_MESSAGES)
     }
 
     init {

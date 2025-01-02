@@ -22,6 +22,14 @@ object Utils {
         welcomeMessage.forEach { line -> Bukkit.getConsoleSender().sendMessage(line) }
     }
 
+    // Function to show a warning about nexus dev mode being enabled
+    fun devmodeConsoleWarning() {
+        if (!Saves.DEV_MODE) return // End if devmode is disabled
+        val warningMessage = " §4[NEXUS DEV MODE IS ENABLED]"
+        Bukkit.getConsoleSender().sendMessage(warningMessage)
+        Bukkit.getConsoleSender().sendMessage("")
+    }
+
     // Function to create a file when it doesn't already exist
     fun createFile(plugin: JavaPlugin, file: File, resourcePath: String? = null) {
         if (file.exists()) return
