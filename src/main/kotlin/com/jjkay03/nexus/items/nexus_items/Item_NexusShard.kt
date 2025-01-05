@@ -9,6 +9,5 @@ class Item_NexusShard: BaseItem (
     id = "nexus_shard",
     material = Material.AMETHYST_SHARD,
     itemModel = NexusItemModels.NEXUS_SHARD.namespacedKey,
-    displayName = "Nexus Shard",
-    rarity = ItemRarity.EPIC
+    displayName = "Nexus Shard"
 )

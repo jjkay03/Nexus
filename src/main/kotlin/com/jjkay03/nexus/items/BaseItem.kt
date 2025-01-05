@@ -11,8 +11,7 @@ abstract class BaseItem(
     private val material: Material,
     private val itemModel: NamespacedKey? = null,
     private val displayName: String? = null,
-    private val lore: List<String>? = null,
-    private val rarity: ItemRarity? = null
+    private val lore: List<String>? = null
 ) {
 
     // Function to create the item
@@ -22,7 +21,6 @@ abstract class BaseItem(
         if (itemModel != null) meta.itemModel = itemModel
         if (displayName != null) meta.displayName(Component.text("§f$displayName"))
         if (lore != null) meta.lore(lore.map { Component.text(it) })
-        if (rarity != null) meta.setRarity(rarity)
         item.itemMeta = meta
         return item
     }
