@@ -7,6 +7,9 @@ class Saves {
     companion object {
         var DEV_MODE = false // Get from config
 
+        // ITEMS
+        const val NEXUS_ITEMS_NAMESPACE = "nexus"
+
         // PERMISSIONS
         const val PERM_ADMIN = "nexus.admin"
         const val PERM_COMMAND = "nexus.command"
