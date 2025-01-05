@@ -17,8 +17,14 @@ class Messages {
         // Messages paths
         val PREFIX = getMessage("prefix")
 
+        // MESSAGES
+        const val COMMAND_GIVEITEM_INVALID_ITEM = "command.giveitem.invalid-item"
+        const val COMMAND_GIVEITEM_GIVE_ITEM = "command.giveitem.give-item"
+
+        // ERRORS
         const val ERROR_COMMAND_NOT_PLAYER = "error.command.not-player"
         const val ERROR_COMMAND_NO_PERMISSION = "error.command.no-permission"
         const val ERROR_COMMAND_UNKNOWN_SUBCOMMAND = "error.command.unknown-subcommand"
+        const val ERROR_COMMAND_USAGE = "error.command.usage"
     }
 }

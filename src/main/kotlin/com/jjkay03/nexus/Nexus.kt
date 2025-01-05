@@ -4,6 +4,7 @@ import com.jjkay03.nexus.commands.ParentCommands
 import com.jjkay03.nexus.commands.cmd_nexus.NexusCommand
 import com.jjkay03.nexus.commands.cmd_nexusadmin.NexusAdminCommand
 import com.jjkay03.nexus.commands.cmd_nexusdev.NexusDevCommand
+import com.jjkay03.nexus.items.NexusItemsList
 import org.bukkit.plugin.java.JavaPlugin
 
 class Nexus : JavaPlugin() {
@@ -16,16 +17,16 @@ class Nexus : JavaPlugin() {
     override fun onEnable() {
         INSTANCE = this
 
-        // Startup logic
-        createDefaultFiles() // Create all default files
-        Saves() // Load all variables in Saves class
-
-        // Startup info
+        // Startup
         Utils.displayPluginWelcomeMessage("§9")
         Utils.devmodeConsoleWarning()
         logger.info("${description.name} is running!")
         logger.info("Plugin version: ${description.version}")
+        createDefaultFiles() // Create all default files
 
+        // INITIATE CLASS
+        Saves() // Load all variables in Saves class
+        NexusItemsList() // Create nexus item list
 
         // COMMANDS
         getCommand(ParentCommands.NEXUS.command)?.setExecutor(NexusCommand())

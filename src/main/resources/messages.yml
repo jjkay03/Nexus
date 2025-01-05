@@ -8,14 +8,23 @@
 # Nexus - Messages file
 # (for plugin version V0.1)
 
+# Messages that contain words in between % symbol (example: %player%)
+# means that they are placeholder, keeping them in the message is recommended!
 
-# Plugin main prefix
+# PLUGIN MAIN PREFIX
 # leave empty (prefix: "") if you wish not to use a prefix
 prefix: "§1[§9NEXUS§1] §r"
 
-# Error messages
+# COMMANDS
+command:
+  giveitem:
+    invalid-item: "§cInvalid item ID!"
+    give-item: "§aGave you %item%"
+
+# ERRORS
 error:
   command:
     not-player: "§cOnly players can run this command!"
     no-permission: "§cYou don't have the permission to run this command!"
     unknown-subcommand: "§cUnknown subcommand!"
+    usage: "§cUsage: %usage%"
