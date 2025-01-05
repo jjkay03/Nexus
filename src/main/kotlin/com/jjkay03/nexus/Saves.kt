@@ -7,11 +7,6 @@ class Saves {
     companion object {
         var DEV_MODE = false // Get from config
 
-        // ITEMS
-        val NEXUS_ITEM_CUSTOM_MODEL_DATA_RANGE = 808_000_000..808_999_999 // Custom model data range
-        val NEXUS_ITEM_NAMESPACE_KEY = NamespacedKey(Nexus.INSTANCE, "nexus")
-
-
         // PERMISSIONS
         const val PERM_ADMIN = "nexus.admin"
         const val PERM_COMMAND = "nexus.command"

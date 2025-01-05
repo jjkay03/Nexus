@@ -28,7 +28,6 @@ class Test1Command : CommandExecutor {
         val item = ItemStack(Material.AMETHYST_SHARD)
         val meta = item.itemMeta
         meta.displayName(Component.text("§fNexus Shard"))
-        //meta.persistentDataContainer.set(Saves.NEXUS_ITEM_NAMESPACE_KEY, PersistentDataType.BOOLEAN, true)
         meta.itemModel = NamespacedKey(Nexus.INSTANCE, "nexus_shard")
         item.itemMeta = meta
         return item
