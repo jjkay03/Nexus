@@ -1,9 +1,12 @@
 package com.jjkay03.nexus.commands.cmd_nexusdev.subs
 
+import com.jjkay03.nexus.Nexus
 import com.jjkay03.nexus.Saves
 import com.jjkay03.nexus.utility.Messages
+import io.papermc.paper.datacomponent.DataComponentType
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
+import org.bukkit.NamespacedKey
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -24,8 +27,9 @@ class Test1Command : CommandExecutor {
     private fun createTestItem(): ItemStack {
         val item = ItemStack(Material.AMETHYST_SHARD)
         val meta = item.itemMeta
-        meta.displayName(Component.text("Test Item"))
-        meta.persistentDataContainer.set(Saves.NEXUS_ITEM_NAMESPACE_KEY, PersistentDataType.BOOLEAN, true)
+        meta.displayName(Component.text("§fNexus Shard"))
+        //meta.persistentDataContainer.set(Saves.NEXUS_ITEM_NAMESPACE_KEY, PersistentDataType.BOOLEAN, true)
+        meta.itemModel = NamespacedKey(Nexus.INSTANCE, "nexus_shard")
         item.itemMeta = meta
         return item
     }
