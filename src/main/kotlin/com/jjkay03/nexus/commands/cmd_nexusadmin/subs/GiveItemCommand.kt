@@ -1,6 +1,6 @@
 package com.jjkay03.nexus.commands.cmd_nexusadmin.subs
 
-import com.jjkay03.nexus.items.NexusItemsList
+import com.jjkay03.nexus.items.NexusItems
 import com.jjkay03.nexus.utility.Messages
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -12,7 +12,6 @@ class GiveItemCommand: CommandExecutor, TabCompleter {
 
     // COMMAND
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
-
         // End if sender not player
         if (sender !is Player) {
             sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.ERROR_COMMAND_NOT_PLAYER))
@@ -25,24 +24,29 @@ class GiveItemCommand: CommandExecutor, TabCompleter {
             return true
         }
 
-        val itemId = args[0]
-        val item = NexusItemsList.getItem(itemId)
+        val itemId = args[0].uppercase()
+        val nexusItem = try {
+            NexusItems.valueOf(itemId)
+        } catch (e: IllegalArgumentException) {
+            null
+        }
 
         // End if item is invalid
-        if (item == null) {
+        if (nexusItem == null) {
             sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.COMMAND_GIVEITEM_INVALID_ITEM))
-            sender.sendMessage(Messages.PREFIX + "§7Item ID's: " + NexusItemsList.getAllIds().toString())
+            sender.sendMessage(Messages.PREFIX + "§7Item ID's: " + NexusItems.values().map { it.name }.toString())
             return true
         }
 
-        sender.inventory.addItem(item.create())
-        sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.COMMAND_GIVEITEM_GIVE_ITEM, mapOf("item" to item.id)))
+        sender.inventory.addItem(nexusItem.itemClass.create())
+        sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.COMMAND_GIVEITEM_GIVE_ITEM, mapOf("item" to nexusItem.name)))
         return true
     }
 
     // TAB COMPLETE
-    override fun onTabComplete(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): List<String>? {
-        return NexusItemsList.getAllIds().filter { it.startsWith(args[0].lowercase()) }
+    override fun onTabComplete(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): List<String> {
+        return NexusItems.entries
+            .map { it.name.lowercase() }
+            .filter { it.startsWith(args[0].lowercase()) }
     }
-
 }

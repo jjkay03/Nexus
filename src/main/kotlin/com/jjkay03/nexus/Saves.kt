@@ -1,6 +1,5 @@
 package com.jjkay03.nexus
 
-import org.bukkit.NamespacedKey
 import java.io.File
 
 class Saves {
@@ -8,7 +7,7 @@ class Saves {
         var DEV_MODE = false // Get from config
 
         // ITEMS
-        const val NEXUS_ITEMS_NAMESPACE = "nexus"
+        const val NEXUS_NAMESPACE = "nexus"
 
         // PERMISSIONS
         const val PERM_ADMIN = "nexus.admin"

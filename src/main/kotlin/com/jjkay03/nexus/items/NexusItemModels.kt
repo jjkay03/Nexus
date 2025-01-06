@@ -4,7 +4,5 @@ import com.jjkay03.nexus.Saves
 import org.bukkit.NamespacedKey
 
 enum class NexusItemModels (val namespacedKey: NamespacedKey) {
-
-    NEXUS_SHARD(NamespacedKey(Saves.NEXUS_ITEMS_NAMESPACE, "nexus_shard"));
-
+    NEXUS_SHARD(NamespacedKey(Saves.NEXUS_NAMESPACE, "nexus_shard"))
 }

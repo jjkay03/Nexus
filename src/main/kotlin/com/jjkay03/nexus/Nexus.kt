@@ -4,7 +4,6 @@ import com.jjkay03.nexus.commands.ParentCommands
 import com.jjkay03.nexus.commands.cmd_nexus.NexusCommand
 import com.jjkay03.nexus.commands.cmd_nexusadmin.NexusAdminCommand
 import com.jjkay03.nexus.commands.cmd_nexusdev.NexusDevCommand
-import com.jjkay03.nexus.items.NexusItemsList
 import org.bukkit.plugin.java.JavaPlugin
 
 class Nexus : JavaPlugin() {
@@ -26,10 +25,6 @@ class Nexus : JavaPlugin() {
         Utils.devmodeConsoleWarning()
         logger.info("${description.name} is running!")
         logger.info("Plugin version: ${description.version}")
-
-
-        // INITIATE CLASS
-        NexusItemsList() // Create nexus item list
 
         // COMMANDS
         getCommand(ParentCommands.NEXUS.command)?.setExecutor(NexusCommand())
