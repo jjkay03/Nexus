@@ -3,7 +3,6 @@ package com.jjkay03.nexus.items
 import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
-import org.bukkit.inventory.ItemRarity
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.Recipe
 
@@ -12,9 +11,11 @@ abstract class BaseItem(
     private val material: Material,
     private val itemModel: NamespacedKey? = null,
     private val displayName: String? = null,
-    private val lore: List<String>? = null,
-    private val recipe: Recipe? = null
+    private val lore: List<String>? = null
 ) {
+
+    // Abstract function to add recipe for item
+    open fun recipe(): Recipe? = null
 
     // Function to create the item
     fun create(): ItemStack {
