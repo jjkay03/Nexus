@@ -14,9 +14,9 @@ class Test2Command : CommandExecutor {
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) return true
         if (Item_NexusShard().isItem(sender.inventory.itemInMainHand)) {
-            sender.sendMessage(Messages.PREFIX + "§aItem you are holding is a Nexus Shard")
+            sender.sendMessage(Messages.PREFIX_DEV + "§aItem you are holding is a Nexus Shard")
         } else {
-            sender.sendMessage(Messages.PREFIX + "§cItem you are holding is not a Nexus Shard")
+            sender.sendMessage(Messages.PREFIX_DEV + "§cItem you are holding is not a Nexus Shard")
         }
         return true
     }

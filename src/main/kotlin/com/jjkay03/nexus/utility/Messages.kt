@@ -16,6 +16,8 @@ class Messages {
 
         // Messages paths
         val PREFIX = getMessage("prefix")
+        val PREFIX_ADMIN = getMessage("prefix-admin")
+        val PREFIX_DEV = getMessage("prefix-dev")
 
         // MESSAGES
         const val COMMAND_GIVEITEM_INVALID_ITEM = "command.giveitem.invalid-item"

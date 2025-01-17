@@ -9,7 +9,7 @@ class NexusCommand : BaseParentCommand(ParentCommands.NEXUS) {
 
     // Handle no arguments
     override fun noArgs(sender: Player) {
-        sender.sendMessage(Messages.PREFIX + "§aTEMP MESSAGE: §rThis is the main nexus command")
+        sender.sendMessage(Messages.PREFIX + "§7TEMP MESSAGE: This is the main nexus command")
     }
 
 }

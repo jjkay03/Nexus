@@ -9,7 +9,7 @@ class NexusAdminCommand : BaseParentCommand(ParentCommands.NEXUS_ADMIN) {
 
     // Handle no arguments
     override fun noArgs(sender: Player) {
-        sender.sendMessage(Messages.PREFIX + "§aTEMP MESSAGE: §rThis is the main admin command")
+        sender.sendMessage(Messages.PREFIX_ADMIN + "§7TEMP MESSAGE: This is the main admin command")
     }
 
 }

@@ -16,7 +16,7 @@ class Test1Command : CommandExecutor {
     // COMMAND
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) return true
-        sender.sendMessage(Messages.PREFIX + "§aYou got a nexus shard")
+        sender.sendMessage(Messages.PREFIX_DEV + "§aYou got a nexus shard")
         sender.inventory.addItem(Item_NexusShard().create())
         return true
     }

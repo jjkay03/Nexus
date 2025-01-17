@@ -1,5 +1,6 @@
 package com.jjkay03.nexus.commands.cmd_nexusadmin.subs
 
+import com.jjkay03.nexus.Saves
 import com.jjkay03.nexus.items.NexusItems
 import com.jjkay03.nexus.utility.Messages
 import org.bukkit.command.Command
@@ -14,13 +15,13 @@ class GiveItemCommand: CommandExecutor, TabCompleter {
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
         // End if sender not player
         if (sender !is Player) {
-            sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.ERROR_COMMAND_NOT_PLAYER))
+            sender.sendMessage(Messages.PREFIX_ADMIN + Messages.getMessage(Messages.ERROR_COMMAND_NOT_PLAYER))
             return true
         }
 
         // End if no item provided
         if (args.isEmpty()) {
-            sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.ERROR_COMMAND_USAGE, mapOf("usage" to "/nexusadmin giveitem <item>")))
+            sender.sendMessage(Messages.PREFIX_ADMIN + Messages.getMessage(Messages.ERROR_COMMAND_USAGE, mapOf("usage" to "/nexusadmin giveitem <item>")))
             return true
         }
 
@@ -33,13 +34,13 @@ class GiveItemCommand: CommandExecutor, TabCompleter {
 
         // End if item is invalid
         if (nexusItem == null) {
-            sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.COMMAND_GIVEITEM_INVALID_ITEM))
-            sender.sendMessage(Messages.PREFIX + "§7Item ID's: " + NexusItems.values().map { it.name }.toString())
+            sender.sendMessage(Messages.PREFIX_ADMIN + Messages.getMessage(Messages.COMMAND_GIVEITEM_INVALID_ITEM))
+            if (Saves.DEV_MODE) sender.sendMessage(Messages.PREFIX_ADMIN + "§7Item ID's: " + NexusItems.entries.map { it.name }.toString())
             return true
         }
 
         sender.inventory.addItem(nexusItem.itemClass.create())
-        sender.sendMessage(Messages.PREFIX + Messages.getMessage(Messages.COMMAND_GIVEITEM_GIVE_ITEM, mapOf("item" to nexusItem.name)))
+        sender.sendMessage(Messages.PREFIX_ADMIN + Messages.getMessage(Messages.COMMAND_GIVEITEM_GIVE_ITEM, mapOf("item" to nexusItem.name)))
         return true
     }
 

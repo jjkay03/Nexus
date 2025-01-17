@@ -11,9 +11,11 @@
 # Messages that contain words in between % symbol (example: %player%)
 # means that they are placeholder, keeping them in the message is recommended!
 
-# PLUGIN MAIN PREFIX
+# PLUGIN PREFIX
 # leave empty (prefix: "") if you wish not to use a prefix
-prefix: "§1[§9NEXUS§1] §r"
+prefix: "§1[§9NEXUS§1] §r" # Main prefix
+prefix-admin: "§4[§cNEXUS§4] §r" # Prefix for admin commands
+prefix-dev: "§2[§aNEXUS§2] §r" # Prefix for dev mode commands
 
 # COMMANDS
 command:
