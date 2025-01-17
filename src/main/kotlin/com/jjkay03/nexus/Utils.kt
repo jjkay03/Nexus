@@ -5,6 +5,8 @@ import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.io.InputStreamReader
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Utils {
 
@@ -46,19 +48,25 @@ object Utils {
     // Function that compare local yml with default yml and add missing keys
     fun updateYamlDefaults(plugin: JavaPlugin, file: File, resourcePath: String) {
         val currentConfig = YamlConfiguration.loadConfiguration(file)
-        val defaultConfig = YamlConfiguration.loadConfiguration(
-            InputStreamReader(plugin.getResource(resourcePath) ?: return)
-        )
-        var updated = false
+        val defaultConfig = YamlConfiguration.loadConfiguration(InputStreamReader(plugin.getResource(resourcePath) ?: return))
+        var updated = false; var updated_keys_count = 0
 
         for (key in defaultConfig.getKeys(true)) if (!currentConfig.contains(key)) {
             currentConfig.set(key, defaultConfig.get(key))
-            updated = true
+            updated = true; updated_keys_count++
         }
 
-        if (!updated) return // End if no update
+        // End if no update
+        if (!updated) return
+
+        // Save changes
         currentConfig.save(file)
-        Nexus.INSTANCE.logger.warning("Updated $resourcePath with missing keys")
+
+        // Add updated file date and version comment
+        val timestamp = SimpleDateFormat("dd/MM/yy hh:mm a").format(Date())
+        file.appendText("\n\n# FILE UPDATE: $updated_keys_count missing keys | $timestamp | Nexus V${Nexus.INSTANCE.description.version}")
+
+        Nexus.INSTANCE.logger.warning("Updated $resourcePath with missing $updated_keys_count keys")
     }
 
 
