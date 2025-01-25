@@ -7,7 +7,7 @@ abstract class BaseSpell(
     val name: String,
     val type: SpellType? = SpellType.NONE,
     val difficulty: SpellDifficulty? = SpellDifficulty.NOVICE,
-    val castingPlayer: Player,
+    val castingPlayer: Player? = null,
     val targetPlayers: List<Player>? = null
 ) {
     // Abstract function to add logic for spell
