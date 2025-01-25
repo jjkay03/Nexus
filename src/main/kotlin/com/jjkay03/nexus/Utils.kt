@@ -49,11 +49,11 @@ object Utils {
     fun updateYamlDefaults(plugin: JavaPlugin, file: File, resourcePath: String) {
         val currentConfig = YamlConfiguration.loadConfiguration(file)
         val defaultConfig = YamlConfiguration.loadConfiguration(InputStreamReader(plugin.getResource(resourcePath) ?: return))
-        var updated = false; var updated_keys_count = 0
+        var updated = false; var updatedKeysCount = 0
 
         for (key in defaultConfig.getKeys(true)) if (!currentConfig.contains(key)) {
             currentConfig.set(key, defaultConfig.get(key))
-            updated = true; updated_keys_count++
+            updated = true; updatedKeysCount++
         }
 
         // End if no update
@@ -64,9 +64,9 @@ object Utils {
 
         // Add updated file date and version comment
         val timestamp = SimpleDateFormat("dd/MM/yy hh:mm a").format(Date())
-        file.appendText("\n\n# FILE UPDATE: $updated_keys_count missing keys | $timestamp | Nexus V${Nexus.INSTANCE.description.version}")
+        file.appendText("\n# FILE UPDATE: $updatedKeysCount missing keys | $timestamp | Nexus V${Nexus.INSTANCE.description.version}")
 
-        Nexus.INSTANCE.logger.warning("Updated $resourcePath with missing $updated_keys_count keys")
+        Nexus.INSTANCE.logger.warning("Updated $resourcePath with missing $updatedKeysCount keys")
     }
 
 
