@@ -17,11 +17,11 @@ class Nexus : JavaPlugin() {
     override fun onEnable() {
         INSTANCE = this
 
-        // Startup logic
+        // STARTUP LOGIC
         createDefaultFiles() // Create all default files
         Saves() // Load all variables in Saves class
 
-        // Startup info
+        // STARTUP INFO
         Utils.displayPluginWelcomeMessage("§9")
         Utils.devmodeConsoleWarning()
         logger.info("${description.name} is running!")
