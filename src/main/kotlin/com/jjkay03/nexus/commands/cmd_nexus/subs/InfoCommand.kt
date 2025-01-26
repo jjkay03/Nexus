@@ -10,7 +10,7 @@ class InfoCommand : CommandExecutor, TabCompleter {
 
     // COMMAND
     override fun onCommand(sender: CommandSender, cmd: Command, label: String, args: Array<out String>): Boolean {
-        sender.sendMessage(Messages.PREFIX + "§aTEMP MESSAGE: §rThis is the nexus info command")
+        sender.sendMessage(Messages.PREFIX + "§7TEMP MESSAGE: §rThis is the nexus info command")
         return true
     }
 

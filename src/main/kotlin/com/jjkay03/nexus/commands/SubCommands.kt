@@ -54,6 +54,14 @@ enum class SubCommands(
         listOf(""),
         "",
         Test2Command()
+    ),
+
+    CAST_SPELL (
+        ParentCommands.NEXUS_DEV,
+        "castspell",
+        listOf(""),
+        "",
+        CastSpellCommand()
     );
 
 }
